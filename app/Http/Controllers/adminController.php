@@ -75,7 +75,10 @@ class adminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $call = Call::find($id);
+        $call->status = true;
+        $call->save();
+        return redirect(url('/dashboard'));
     }
 
     /**

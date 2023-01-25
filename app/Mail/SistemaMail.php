@@ -49,15 +49,15 @@ class SistemaMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'sistemaMail',
+            view: 'envioemail',
         );
     }
 
-    public function headers()
-{
-    return new Headers(
-        messageId: 'Atividade'
-    );
-}
+//     public function headers()
+// {
+//     return new Headers(
+//         messageId: 'Atividade'
+//     );
+// }
 
 }

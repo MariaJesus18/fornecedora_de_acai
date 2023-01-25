@@ -15,4 +15,6 @@ class Call extends Model
         'endereco',
         'user_id',
     ];
+
+    
 }

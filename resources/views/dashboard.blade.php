@@ -19,28 +19,37 @@
             <!-- listagem de pedidos do úsuario -->
             <h1>Todos os pedidos:</h1>
             <ul class="">
+
                 @foreach ($tasks as $item)
                 @foreach ($users as $itens)
 
                 <div class="lis_ped">
                     <li class="">
+
                         <p class="">
                         {{$itens->name}}
-                            - {{$item->size}} kg de açaí 
-                            {{$item->flavor}}
-                            e-mail: {{$itens->email}}
 
+                            - {{$item->size}} kg de açaí 
+
+                            {{$item->flavor}}
+
+                            e-mail: {{$itens->email}}
                         </p>
+
                         @if ($item->status)
-                        <span class="">
+                        <h3 class="">
                             <i class=""></i>
-                            entregue
-                        </span>
+                            Entregue
+                        </h3>
                         @else
+                        <div>
+                            <a href="{{route('update_call', ['id' => $item->id])}}"><button>Entregar</button></a>
+                        </div>
                         <span class="">
-                            ~ à caminho
+                            ~ O pedido está a caminho
                         </span>
                         @endif
+
                     </li>
                     @endforeach
                     @endforeach

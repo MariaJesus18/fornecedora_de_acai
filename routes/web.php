@@ -31,18 +31,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-//rotas do login de clientes
-// Route::get('/login', [AuthenticatedSessionController::class, 'create']);
-// Route::post('/login', [AuthenticatedSessionController::class, 'store']);
-
-//rotas do registro de clientes
-// Route::get('/register', [RegisteredUserController::class, 'create']);
-// Route::post('/register', [RegisteredUserController::class, 'store']);
-
 //rotas para crição e registro de pedidos
 Route::get('/calls', [CallController::class, 'create']);
 Route::post('/calls', [CallController::class, 'store']);
 
 Route::get('/dashboard', [adminController::class, 'create']);
+Route::get('/dashboard/{id}', [adminController::class, 'update'])->name('update_call');
 
 require __DIR__ . '/auth.php';
