@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Controle</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    
 </head>
 <body>
 
+    
 
 
     <div class="opcoes">
@@ -59,5 +61,8 @@
         </div>
 
     </div>
+
+    
+    
 </body>
 </html>

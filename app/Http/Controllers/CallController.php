@@ -30,9 +30,9 @@ class CallController extends Controller
      */
     public function create()
     {
-        
-
         $tasks = Call::where('user_id', Auth::id())->get();
+
+        //dd($tasks);
 
         return view('visibility.calls', [
         'tasks' => $tasks,

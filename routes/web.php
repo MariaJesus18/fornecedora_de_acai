@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 
 use App\Http\Controllers\CallController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\UserController;
 /*
 
 |--------------------------------------------------------------------------
@@ -37,5 +38,13 @@ Route::post('/calls', [CallController::class, 'store']);
 
 Route::get('/dashboard', [adminController::class, 'create']);
 Route::get('/dashboard/{id}', [adminController::class, 'update'])->name('update_call');
+
+
+Route::get('users', [UserController::class, 'index'])->name('perfil');
+Route::get('users/show/{user}', [UserController::class, 'show'])->name('showPerfil');
+Route::get('users/edit/{user}', [UserController::class, 'edit'])->name('editPerfil');
+Route::post('users/update/{user}', [UserController::class, 'update'])->name('updatePerfil');
+
+Route::get('users/admin/{user}', [UserController::class, 'superAdmin']);
 
 require __DIR__ . '/auth.php';

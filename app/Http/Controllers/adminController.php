@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Call;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
@@ -23,8 +24,10 @@ class adminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
+        Gate::authorize('admin');
+
         $tasks = Call::all();
         $users = User::all();
         return view('dashboard', [

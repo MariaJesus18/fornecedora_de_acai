@@ -15,6 +15,8 @@ class Call extends Model
         'endereco',
         'user_id',
     ];
-
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

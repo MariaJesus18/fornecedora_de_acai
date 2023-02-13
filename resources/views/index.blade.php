@@ -1,4 +1,4 @@
-@extends('layout.template')
+@extends('layouts.template')
 
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,5 +1,5 @@
 body{
-	background-color: 	#573391;
+	background-color: white;
 	font-size: 30px;
 }
 .inputs input{
@@ -54,9 +54,6 @@ body{
 	margin-left: 50%;
 	transform: translate(-50%);
 	margin-top: 8px;
-	
-	
-
 }
 .form{
 	align-items: center;
