@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserUpdateRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
+use Auth, Hash, Storage, Str;
 
 class UserController extends Controller
 {
@@ -69,7 +67,8 @@ class UserController extends Controller
 
         //obter image
         $extension = $request->file('photo')->getClientOriginalExtension();
-        $filename = 'ftperfil'.$user->id.'.'.$extension;
+
+        $filename = date('Ymd') . Str::random(12) . Str::random(12) . '.' . $extension;
         $file = $request->file('photo')->storeAs('perfil', $filename);
         
         // return $file;
