@@ -73,5 +73,7 @@ return [
         public_path('storage') => storage_path('app/public'),
         public_path('img-resource') => resource_path('img'),
         public_path('perfil') => storage_path('app/Perfil'),
+        public_path('galeria') => storage_path('app/Galeria'),
+        public_path('acai') => storage_path('app/acai'),
     ],
 ];

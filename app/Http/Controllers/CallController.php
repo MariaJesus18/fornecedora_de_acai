@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SistemaMail;
 use App\Models\User;
+use App\Models\AcaiCliente;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use App\Http\Requests\UserUpdateRequest;
 
 class CallController extends Controller
 {
@@ -28,14 +32,13 @@ class CallController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(AcaiCliente $acaiCliente)
     {
         $tasks = Call::where('user_id', Auth::id())->get();
 
-        //dd($tasks);
-
         return view('visibility.calls', [
         'tasks' => $tasks,
+        'acaiCliente'=>$acaiCliente,
         ]);
         
     }

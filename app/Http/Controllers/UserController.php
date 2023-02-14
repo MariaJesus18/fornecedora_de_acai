@@ -70,8 +70,6 @@ class UserController extends Controller
 
         $filename = date('Ymd') . Str::random(12) . Str::random(12) . '.' . $extension;
         $file = $request->file('photo')->storeAs('perfil', $filename);
-        
-        // return $file;
 
         //atualizar os dados
         $user->update([

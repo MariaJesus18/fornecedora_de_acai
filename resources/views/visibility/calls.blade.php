@@ -24,6 +24,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ url('/dashboard') }}" style="color: yellow">Painel de controle</a>
                         </li>
+						<li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ route('galeria') }}" style="color: yellow">Galeria da empresa</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ url('/calls')}} " style="color: yellow">Pedidos</a>
                         </li>
@@ -35,8 +38,9 @@
                                 <form action="{{url('/logout')}}" method="POST">
                                     @csrf
                                     <button type="submit" class="dropdown-item">Sair</button>
-                                    {{-- <a href="" class="dropdown-item">Sair</a> --}}
+                                
                                 </form>   
+								<a href="{{route('editPerfil', Auth::id())}}" class="dropdown-item">Editar</a>
 								<a href="{{route('showPerfil', Auth::id())}}" class="dropdown-item">Perfil</a>
                             </ul>                            
                         </li>
@@ -130,11 +134,33 @@
 
 					</div>
 				</ul>
-			</div>
 		</div>
-	</div>
-
+		
 	
+
+
+
+	<h1>Coloque uma foto tomando nosso açaí</h1>
+    <form action="{{route('acaiStore')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <div class="form-group">
+          <label for="foto_acai">Foto:  </label>
+          <input type="file" name="foto_acai" class="imagem" id="imagem" aria-describedby="emailHelp" accept="image/png, image/jpeg, image/jpg" required>
+        
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+
+		@php
+            $path = '/acai/' . $acaiCliente->imagem;
+            $full_path = Storage::path($path);
+            $base64 = base64_encode(Storage::get($path));
+            $iamgemdata = 'data:'.mime_content_type($full_path) . ';base64,' . $base64;  
+        @endphp
+
+	  <img src="{{$iamgemdata}}" alt="sem imagem" width="200" height="200">
+
+	</div></div>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 
