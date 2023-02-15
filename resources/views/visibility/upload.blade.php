@@ -12,7 +12,7 @@
 </head>
 
     <h1>Adicione uma foto na galeria</h1>
-    <form action="{{route('acaiStore')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('galeria.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">

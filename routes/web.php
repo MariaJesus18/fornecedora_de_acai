@@ -38,7 +38,7 @@ Route::post('users/update/{user}', [UserController::class, 'update'])->name('upd
 //rotas referentes da galeria de imagens da empresa
 Route::get('visibility/index', [GaleriaController::class, 'index'])->name('galeria');
 Route::get('visibility/create', [GaleriaController::class, 'create'])->name('galeriaCreate');
-Route::post('visibility/store', [GaleriaController::class, 'store'])->name('galeriaStore');
+Route::post('visibility/galeria/store', [GaleriaController::class, 'store'])->name('galeria.store');
 
 //rotas referente ao cliente colocoar foto tomando nosso açaí
 Route::post('visibility/store', [AcaiClienteController::class, 'store'])->name('acaiStore');
