@@ -32,10 +32,12 @@ class CallController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(AcaiCliente $acaiCliente)
+    public function create()
     {
         $tasks = Call::where('user_id', Auth::id())->get();
 
+        $acaiCliente = AcaiCliente::orderBy('id', 'desc')->first();
+        
         return view('visibility.calls', [
         'tasks' => $tasks,
         'acaiCliente'=>$acaiCliente,
